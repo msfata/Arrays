@@ -1,0 +1,64 @@
+package com.own.jar;
+
+import java.util.Arrays;
+
+public class DuplicateRemover {
+
+	public static String removeDuplicate(String... originalArr) {
+		int arrSize = originalArr.length;
+		for (int i = 0; i < arrSize; i++) {
+			for (int j = i + 1; j < arrSize; j++) {
+				// If any two elements are found equal
+
+				if (originalArr[i] == originalArr[j]) {
+					// Replace duplicate element with last unique element
+					originalArr[j] = originalArr[arrSize - 1];
+					arrSize--;
+					j--;
+				}
+			}
+		}
+
+		// Copying only unique elements of my_array into array1
+		String[] uniqueArray = Arrays.copyOf(originalArr, arrSize);
+		String result = "";
+		// Printing array Without Duplicates
+		for (String unique : uniqueArray) {
+			result += unique + " ";
+		}
+		return result;
+	}
+
+	// unique int
+	/**
+	 * @param originalArr
+	 * @return
+	 */
+	public static int removeDuplicate(int... originalArr) {
+		String temp = "";
+		int result;
+		int arrSize = originalArr.length;
+		for (int i = 0; i < arrSize; i++) {
+			for (int j = i + 1; j < arrSize; j++) {
+				// If any two elements are found equal
+
+				if (originalArr[i] == originalArr[j]) {
+					// Replace duplicate element with last unique element
+					originalArr[j] = originalArr[arrSize - 1];
+					arrSize--;
+					j--;
+				}
+			}
+		}
+
+		// Copying only unique elements of my_array into array1
+		int[] uniqueArray = Arrays.copyOf(originalArr, arrSize);
+
+		// Printing array Without Duplicates
+		for (int i = 0; i < uniqueArray.length; i++) {
+			temp += uniqueArray[i];
+		}
+		result = Integer.parseInt(temp);
+		return result;
+	}
+}
